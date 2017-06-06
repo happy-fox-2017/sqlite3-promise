@@ -58,7 +58,26 @@ describe('UPDATE', function() {
       }
     });
   })
-})
+});
+
+describe('DELETE', function() {
+
+  before(function(done) {
+    crud.deletes(() => {
+      crud.create({ id: 1, name: 'John Doe', subject: 'Foo Bar' }, done);
+    });
+  });
+
+  it('should contains no rows', function (done) {
+    crud.deletes((err) => {
+      if (!err) {
+        done();
+      } else {
+        done(err);
+      }
+    });
+  })
+});
 
 /**
  * contoh testing function dengan promise
