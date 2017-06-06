@@ -6,7 +6,25 @@ const crud = require('../index.js')
  */
 describe('CREATE', function() {
   it('should invoke callback done', function(done) {
-    create({ id: 1, name: 'John Doe', subject: 'Foo Bar'}, done);
+    crud.create({ id: 1, name: 'John Doe', subject: 'Foo Bar'}, done());
+  })
+})
+
+describe('READ', function() {
+  it('should invoke callback done', function(done) {
+    crud.read(done());
+  })
+})
+
+describe('UPDATE', function() {
+  it('should invoke callback done', function(done) {
+    crud.update(done());
+  })
+})
+
+describe('DELETE', function() {
+  it('should invoke callback done', function(done) {
+    crud.deletes(1,done());
   })
 })
 
@@ -16,7 +34,7 @@ describe('CREATE', function() {
  */
 describe('CREATE promise', function() {
   it('should resolve and invoke callback done', function(done) {
-    create()
+    crud.createData({ id: 1, name: 'John Doe', subject: 'Foo Bar'})
     .then(function() {
       done()
     })
@@ -25,3 +43,41 @@ describe('CREATE promise', function() {
     })
   })
 })
+
+describe('READ promise', function() {
+  it('should resolve and invoke callback done', function(done) {
+    crud.readData()
+    .then(function() {
+      done()
+    })
+    .catch(function(err) {
+      done(err)
+    })
+  })
+})
+
+describe('UPDATE promise', function() {
+  it('should resolve and invoke callback done', function(done) {
+    crud.updateData({ id: 1, name: 'ade Doe', subject: 'Foo Bar'})
+    .then(function() {
+      done()
+    })
+    .catch(function(err) {
+      done(err)
+    })
+  })
+})
+
+describe('DELETE promise', function() {
+  it('should resolve and invoke callback done', function(done) {
+    crud.deleteData(2)
+    .then(function() {
+      done()
+    })
+    .catch(function(err) {
+      done(err)
+    })
+  })
+})
+
+
