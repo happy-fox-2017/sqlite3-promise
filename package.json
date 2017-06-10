@@ -1,0 +1,22 @@
+{
+  "name": "sqlite3-promise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happy-fox-2017/sqlite3-promise.git"
+  },
+  "author": "biliman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/happy-fox-2017/sqlite3-promise/issues"
+  },
+  "homepage": "https://github.com/happy-fox-2017/sqlite3-promise#readme"
+}
