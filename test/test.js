@@ -1,26 +1,49 @@
-const crud = require('../index.js')
 
-/**
- * contoh testing function dengan callback
- * comment apabila tidak digunakan
- */
-describe('CREATE', function() {
+const {create, read, update, remove} = require('../index.js');
+
+describe('CREATE promise', function() {
   it('should invoke callback done', function(done) {
-    create({ id: 1, name: 'John Doe', subject: 'Foo Bar'}, done);
+    create({ id: 1, name: 'John Doe', subject: 'Foo Bar'})
+      .then(()=> {
+      done()
+    })
+      .catch((err) => {
+      done(err)
+    })
   })
 })
 
-/**
- * contoh testing function dengan promise
- * comment apabila tidak digunakan
- */
-describe('CREATE promise', function() {
-  it('should resolve and invoke callback done', function(done) {
-    create()
-    .then(function() {
+describe('READ promise', function() {
+  it('resolve and invoke callback done', function(done) {
+    read()
+      .then(()=> {
       done()
     })
-    .catch(function(err) {
+      .catch((err) => {
+      done(err)
+    })
+  })
+})
+
+describe('UPDATE promise', function() {
+  it('resolve and invoke callback done', function(done) {
+    update(2, 'budiono', 'hasan')
+      .then(()=> {
+      done()
+    })
+      .catch((err) => {
+      done(err)
+    })
+  })
+})
+
+describe('REMOVE promise', function() {
+  it('resolve and invoke callback done', function(done) {
+    remove(2)
+      .then(()=> {
+      done()
+    })
+      .catch((err) => {
       done(err)
     })
   })
